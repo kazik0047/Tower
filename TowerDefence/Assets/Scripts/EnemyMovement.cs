@@ -18,7 +18,6 @@ public class EnemyMovement : MonoBehaviour
         WayPoints = FindObjectOfType<WaypointManager>().WayPoints;
         myRigidbody = GetComponent<Rigidbody2D>();
         transform.position = FindObjectOfType<WaypointManager>().startingPoint.position;
-        Debug.Log("transform. position = " + transform.position);
     }
 
     void FixedUpdate()
@@ -27,9 +26,6 @@ public class EnemyMovement : MonoBehaviour
         direction = direction.normalized;
         myRigidbody.AddForce(direction * speed);
         ChangeWaypoint();
-        //Debug.Log(wayPointIndex + "direction = " + direction + "transform. position" + transform.position + 
-        //"waypoints position" + WayPoints[wayPointIndex].position);
-        //CheckLastWaypoint();  ostatni waypoint do nabijania punktów
     }
 
     private void ChangeWaypoint()
